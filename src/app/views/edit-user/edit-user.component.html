@@ -1,0 +1,43 @@
+<section class="form-section p-5 m-auto bg-light rounded my-3" #myForm (ngSubmit)="getData(myForm)" >
+<form class="container">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input 
+      type="email" 
+      class="form-control" 
+      id="name"
+      name="name"
+      ngModel
+      [(ngModel)]="user.name"
+      #name="ngModel"
+      required
+      minlength="3"
+    />
+    <div *ngIf="name.errors && name.touched" class="error">
+      <p *ngIf="name.errors?.['required']"> Name field is required </p>
+      <p *ngIf="name.errors?.['minlength']"> This field has min length of {{name.errors?.['minlength'].requiredLength}} </p>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="company-name" class="form-label">Company Name</label>
+    <input 
+      type="email" 
+      class="form-control mb-3" 
+      id="company-name"
+      name="company-name"
+      ngModel
+      [(ngModel)]="user.company?.name!"
+      #company="ngModel"
+      required
+      minlength="3"
+    />
+    <div *ngIf="company.errors && company.touched" class="error">
+      <p *ngIf="company.errors?.['required']"> Company Name field is required </p>
+      <p *ngIf="company.errors?.['minlength']"> This field has min length of {{company.errors?.['minlength'].requiredLength}} </p>
+    </div>
+    
+    <button type="submit" (click)="goHome()" class="btn btn-success">Update</button>
+  </div>
+  </form>
+</section>

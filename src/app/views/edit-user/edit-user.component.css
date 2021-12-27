@@ -1,3 +1,7 @@
+.form-section {
+  max-width: 40%;
+}
+
 .error {
   color: red;
   font-weight: 900;
